@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Vagina
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: 662b825fedcf57641a064da65fce38cc, type: 2}
+  cardCost: 3
   properties:
   - stringValue: period blood
     integerValue: 0
@@ -34,6 +35,6 @@ MonoBehaviour:
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: ca5d7e8d75dd5d04c98382ab1ab87fd8, type: 2}
   - stringValue: 
-    integerValue: 1
+    integerValue: 3
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: eeb55041edbed5442aa651a8f3cd1ed8, type: 2}

@@ -6,5 +6,6 @@ using UnityEngine;
 public class Card : ScriptableObject
 {
     public CardType cardType;
+    public int cardCost;
     public CardProperties[] properties;
 }

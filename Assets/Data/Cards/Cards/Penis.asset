@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Penis
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: fd50526c8dd0eff4c812a39f4ef62630, type: 2}
+  cardCost: 1
   properties:
   - stringValue: erection
     integerValue: 0
@@ -31,6 +32,10 @@ MonoBehaviour:
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: ca5d7e8d75dd5d04c98382ab1ab87fd8, type: 2}
   - stringValue: 
-    integerValue: 99
+    integerValue: 1
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: eeb55041edbed5442aa651a8f3cd1ed8, type: 2}
+  - stringValue: 
+    integerValue: 5
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: c90eeea8d38a5a743a2975af321a9a8f, type: 2}

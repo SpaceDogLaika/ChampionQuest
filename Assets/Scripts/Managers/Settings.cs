@@ -8,6 +8,17 @@ public static class Settings
 {
     public static ResourcesManager _resourcesManager;
     public static GameManager _gameManager;
+    private static ConsoleHook _consoleManager;
+
+    public static void RegisterEvent(string eventString, Color color = default(Color))
+    {
+        if (_consoleManager == null)
+        {
+            _consoleManager = Resources.Load("ConsoleHook") as ConsoleHook;
+        }
+
+        _consoleManager.RegisterEvent(eventString, color);
+    }
 
     public static ResourcesManager GetResourcesManager()
     {
@@ -31,6 +42,23 @@ public static class Settings
         EventSystem.current.RaycastAll(pointerData, results);
 
         return results;
+    }
+
+    public static void DropCreatureCard(Transform current, Transform parent, CardInstance cardInstance)
+    {
+        cardInstance.isUsable = false;
+
+        // Execute any special card abilities on drop here
+
+        SetParentForCard(current, parent);
+
+        if(cardInstance.isUsable == false)
+        {
+            current.localEulerAngles = new Vector3(0, 0, 90); 
+        }
+
+        _gameManager.currentPlayer.UseResourceCards(cardInstance.cardViz.card.cardCost);
+        _gameManager.currentPlayer.DropCard(cardInstance);
     }
 
     public static void SetParentForCard(Transform current, Transform parent)

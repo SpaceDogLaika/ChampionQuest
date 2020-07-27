@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b8a9f4366ff21499e7d2195b6dbe9d, type: 3}
-  m_Name: BattlePhase
+  m_Script: {fileID: 11500000, guid: cd46ea73bc4f1a147b0512953ab40cf5, type: 3}
+  m_Name: MyResourcesGridTransform
   m_EditorClassIdentifier: 
-  phaseName: Battle Phase
-  forceExit: 0
-  playerBattleState: {fileID: 11400000, guid: 2b5c1c18a2bfcab4c853212f93abc9d4, type: 2}
+  value: {fileID: 0}

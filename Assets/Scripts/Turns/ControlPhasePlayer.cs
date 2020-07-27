@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Turns/ControlPhasePlayer")]
+[CreateAssetMenu(menuName = "Turns/Control Phase Player")]
 public class ControlPhasePlayer : Phase
 {
     public GameState playerControlState;
@@ -20,7 +20,7 @@ public class ControlPhasePlayer : Phase
 
     public override void OnEndPhase()
     {
-        if (!isInit)
+        if (isInit)
         {
             Settings._gameManager.SetState(null);
             isInit = false;

@@ -9,6 +9,17 @@ public class CardViz : MonoBehaviour
     public GameObject statsHolder;
     public GameObject resourceHolder;
 
+    public void CloseAll()
+    {
+        foreach (CardVizProperties property in properties)
+        {
+            if (property.img != null)
+                property.img.gameObject.SetActive(false);
+            if (property.text != null)
+                property.text.gameObject.SetActive(false);
+        }
+    }
+
     public void LoadCard(Card card)
     {
         if (card == null)
@@ -17,6 +28,8 @@ public class CardViz : MonoBehaviour
         this.card = card;
 
         card.cardType.OnSetType(this);
+
+        CloseAll();
 
         for (int i = 0; i < card.properties.Length; i++)
         {
@@ -30,14 +43,17 @@ public class CardViz : MonoBehaviour
             if (cardProperties.element is ElementInt)
             {
                 cardVizProperties.text.text = cardProperties.integerValue.ToString();
+                cardVizProperties.text.gameObject.SetActive(true);
             }
             else if (cardProperties.element is ElementText)
             {
                 cardVizProperties.text.text = cardProperties.stringValue;
+                cardVizProperties.text.gameObject.SetActive(true);
             }
             else if (cardProperties.element is ElementImage)
             {
                 cardVizProperties.img.sprite = cardProperties.sprite;
+                cardVizProperties.img.gameObject.SetActive(true);
             }
         }
 

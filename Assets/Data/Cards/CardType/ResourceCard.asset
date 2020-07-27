@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8cf56118a0f8a4c8b64fdcce7372ae, type: 3}
   m_Name: ResourceCard
   m_EditorClassIdentifier: 
-  typeName: 
+  typeName: Resource

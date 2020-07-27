@@ -1306,6 +1306,9 @@ MonoBehaviour:
   - text: {fileID: 2804624848480861413}
     img: {fileID: 0}
     element: {fileID: 11400000, guid: 831d3b58c68b82a48b25f38cd17ee9a4, type: 2}
+  - text: {fileID: 2804624847956511696}
+    img: {fileID: 0}
+    element: {fileID: 11400000, guid: c90eeea8d38a5a743a2975af321a9a8f, type: 2}
   statsHolder: {fileID: 2804624848320605251}
   resourceHolder: {fileID: 2804624849389614493}
 --- !u!114 &4254480932985546121
@@ -1322,6 +1325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardViz: {fileID: 0}
   currentLogic: {fileID: 11400000, guid: 46f02b06ec8ec894e95c0a00b430cc36, type: 2}
+  isUsable: 0
 --- !u!1 &5926386607988538217
 GameObject:
   m_ObjectHideFlags: 0

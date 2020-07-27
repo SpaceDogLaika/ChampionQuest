@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54405c2e579ade84aaeb75a7c7c48fa0, type: 3}
   m_Name: LocalPlayer
   m_EditorClassIdentifier: 
-  username: 
+  username: Player
   startingCards:
   - Doom
   - Penis
   - Vagina
   - Mana
-  handGrid: {fileID: 11400000, guid: 5047ddc185d2f354bb735fc0f74c4184, type: 2}
-  downGrid: {fileID: 11400000, guid: bf5dfbb8c7417294989ed1f22b16bb70, type: 2}
+  - Mana
+  - Mana
+  - Mana
+  - Mana
+  - Mana
+  - Mana
+  playerColor: {r: 0, g: 0.049153328, b: 1, a: 1}
   handLogic: {fileID: 11400000, guid: 46f02b06ec8ec894e95c0a00b430cc36, type: 2}
   downLogic: {fileID: 11400000, guid: 1f3373747dd14bf4d9edb598bfbcfa1e, type: 2}
+  isHumanPlayer: 1
+  resourcesPerTurn: 1

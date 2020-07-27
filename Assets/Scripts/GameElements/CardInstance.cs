@@ -5,6 +5,7 @@ public class CardInstance : MonoBehaviour, IClickable
 {
     public CardViz cardViz;
     public GameElementLogic currentLogic;
+    public bool isUsable;
 
     void Start()
     {

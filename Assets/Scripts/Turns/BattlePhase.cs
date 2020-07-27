@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Turns/BattlePhase")]
 public class BattlePhase : Phase
 {
-    public GameState playerBattleState;
+    public GameState battlePhaseControl;
+    public Condition isBattleValid;
 
     public override bool IsComplete()
     {
@@ -20,7 +21,7 @@ public class BattlePhase : Phase
 
     public override void OnEndPhase()
     {
-        if (!isInit)
+        if (isInit)
         {
             Settings._gameManager.SetState(null);
             isInit = false;
@@ -31,8 +32,10 @@ public class BattlePhase : Phase
     {
         if (!isInit)
         {
-            Debug.Log(this.name + "starts");
-            Settings._gameManager.SetState(playerBattleState);
+            forceExit = !isBattleValid.IsValid();
+
+
+            Settings._gameManager.SetState((!forceExit) ? battlePhaseControl : null);
             Settings._gameManager.onPhaseChanged.Raise();
             isInit = true;
         }

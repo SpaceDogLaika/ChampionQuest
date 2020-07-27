@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Doom
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: fd50526c8dd0eff4c812a39f4ef62630, type: 2}
+  cardCost: 2
   properties:
   - stringValue: massive legend here
     integerValue: 0
@@ -30,10 +31,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4c597be0888fff049b735614463f62c0, type: 3}
     element: {fileID: 11400000, guid: 5930658a45c2ddb4eac91eeff1f2823c, type: 2}
   - stringValue: 
-    integerValue: 1
+    integerValue: 2
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: ca5d7e8d75dd5d04c98382ab1ab87fd8, type: 2}
   - stringValue: 
-    integerValue: 1
+    integerValue: 2
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: eeb55041edbed5442aa651a8f3cd1ed8, type: 2}
+  - stringValue: 
+    integerValue: 5
+    sprite: {fileID: 0}
+    element: {fileID: 11400000, guid: c90eeea8d38a5a743a2975af321a9a8f, type: 2}

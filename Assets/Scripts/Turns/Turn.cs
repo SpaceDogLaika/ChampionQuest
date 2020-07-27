@@ -5,17 +5,29 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Turns/Turn")]
 public class Turn : ScriptableObject
 {
-    public string turnName;
     public PlayerHolder player;
     public Phase[] phases;
     [System.NonSerialized]
-    public int currentPhaseIndex;
+    public int currentPhaseIndex = 0;
     public PhaseVariable currentPhase;
+
+    public PlayerAction[] turnStartActions;
+
+    public void OnTurnStart()
+    {
+        if (turnStartActions == null)
+            return;
+
+        for (int i = 0; i < turnStartActions.Length; i++)
+        {
+            turnStartActions[i].Execute(player);
+        }
+    }
 
     public bool Execute()
     {
         bool result = false;
-        Debug.Log(currentPhaseIndex);
+
         currentPhase.value = phases[currentPhaseIndex];
         phases[currentPhaseIndex].OnStartPhase();
 
@@ -33,6 +45,11 @@ public class Turn : ScriptableObject
         }
 
         return result;
+    }
+
+    public void EndCurrentPhase()
+    {
+        phases[currentPhaseIndex].forceExit = true;
     }
 
 }
