@@ -54,10 +54,9 @@ public static class Settings
 
         if(cardInstance.isUsable == false)
         {
-            current.localEulerAngles = new Vector3(0, 0, 90); 
+            cardInstance.ChangeToPlacedCard();
         }
 
-        _gameManager.currentPlayer.UseResourceCards(cardInstance.cardViz.card.cardCost);
         _gameManager.currentPlayer.DropCard(cardInstance);
     }
 

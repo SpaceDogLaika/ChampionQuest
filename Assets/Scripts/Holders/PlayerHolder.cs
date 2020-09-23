@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Cards;
+using ChampionQuest.Enumerations;
 using SO;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,8 +9,15 @@ using UnityEngine;
 public class PlayerHolder : ScriptableObject
 {
     public string username;
+    public Sprite playerPortrait;
     public string[] startingCards;
     public Color playerColor;
+    public int hp = 30;
+    public PlayerStatsUI playerStatsUI;
+    public int currentMaxResources;
+    public int currentResources;
+    public int turnCount;
+    public bool isFirstTurn = true;
 
     public GameElementLogic handLogic;
     public GameElementLogic downLogic;
@@ -19,16 +27,16 @@ public class PlayerHolder : ScriptableObject
     [System.NonSerialized]
     public CardHolders currentHolder;
 
-    public int resourcesPerTurn = 1;
-
-    [System.NonSerialized]
-    public int resourcesDroppedThisTurn;
-
     [System.NonSerialized]
     public List<CardInstance> handCards = new List<CardInstance>();
     [System.NonSerialized]
-    public List<CardInstance> cardsDown = new List<CardInstance>();
-
+    public List<CardInstance> cardsDownRanged = new List<CardInstance>();
+    [System.NonSerialized]
+    public List<CardInstance> cardsDownMelee = new List<CardInstance>();
+    [System.NonSerialized]
+    public List<CardInstance> cardsDownField = new List<CardInstance>();
+    [System.NonSerialized]
+    public List<CardInstance> attackingCards = new List<CardInstance>();
     [System.NonSerialized]
     public List<ResourceHolder> resourcesList = new List<ResourceHolder>();
 
@@ -49,45 +57,24 @@ public class PlayerHolder : ScriptableObject
         Settings.RegisterEvent(username + " dropped a resource card", Color.white);
     }
 
-    public int NonUsedCards()
-    {
-        int result = 0;
-
-        for (int i = 0; i < resourcesList.Count; i++)
-        {
-            if (!resourcesList[i].isUsed)
-            {
-                result++;
-            }
-        }
-
-        return result;
-    }
-
     public bool CanUseCard(Card card)
     {
         var result = false;
 
-        if (card.cardType is CreatureCard || card.cardType is SpellCard)
+        if (card.cardType is MeleeUnit || card.cardType is RangedUnit || card.cardType is SpellCard)
         {
-            var currentResources = NonUsedCards();
-
             if (card.cardCost <= currentResources)
                 result = true;
-
         }
         else
         {
             if (card.cardType is ResourceCard)
             {
-                if(resourcesPerTurn - resourcesDroppedThisTurn > 0)
-                {
+                if (card.cardCost <= currentResources)
                     result = true;
-                    resourcesDroppedThisTurn++;
-                }
             }
         }
-
+        
         return result;
     }
 
@@ -96,47 +83,28 @@ public class PlayerHolder : ScriptableObject
         if (handCards.Contains(cardInstance))
             handCards.Remove(cardInstance);
 
-        cardsDown.Add(cardInstance);
+        if(cardInstance.cardViz.card.cardType.cardTypeEnum.Equals(CardTypeEnum.Melee))
+            cardsDownMelee.Add(cardInstance);
+
+        if (cardInstance.cardViz.card.cardType.cardTypeEnum.Equals(CardTypeEnum.Ranged))
+            cardsDownRanged.Add(cardInstance);
 
         Settings.RegisterEvent(username + " used " + cardInstance.cardViz.card.name + " for " + cardInstance.cardViz.card.cardCost, Color.white);
     }
 
-    public List<ResourceHolder> GetUnusedResources()
+    public void LoadPlayerOnStatsUI()
     {
-        List<ResourceHolder> result = new List<ResourceHolder>();
-
-        for (int i = 0; i < resourcesList.Count; i++)
+        if (playerStatsUI != null)
         {
-            if (!resourcesList[i].isUsed)
-            {
-                result.Add(resourcesList[i]);
-            }
+            playerStatsUI.player = this;
+            playerStatsUI.UpdateAll();
         }
-
-        return result;
     }
 
-    public void MakeAllResourceCardsUsable()
+    public void DealDamage(int value)
     {
-        for (int i = 0; i < resourcesList.Count; i++)
-        {
-            resourcesList[i].isUsed = false;
-            resourcesList[i].cardObject.transform.localEulerAngles = Vector3.zero;
-        }
-
-        resourcesDroppedThisTurn = 0;
-    }
-
-    public void UseResourceCards(int amount)
-    {
-        Vector3 euler = new Vector3(0, 0, 90);
-
-        List<ResourceHolder> list = GetUnusedResources();
-
-        for (int i = 0; i < amount; i++)
-        {
-            list[i].isUsed = true;
-            list[i].cardObject.transform.localEulerAngles = euler;
-        }
+        hp -= value;
+        if(playerStatsUI != null)
+            playerStatsUI.UpdateHealth();
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public SO.StringVariable turnText;
 
     public bool switchPlayer;
+
+    public PlayerStatsUI[] playerStats;
 
     public static GameManager gmSingleton;
 
@@ -48,15 +51,30 @@ public class GameManager : MonoBehaviour
 
     public void SetupPlayers()
     {
-        foreach (PlayerHolder p in allPlayers)
+        for (int i = 0; i < allPlayers.Length; i++)
         {
-            if (p.isHumanPlayer)
+            if (allPlayers[i].isHumanPlayer)
             {
-                p.currentHolder = playerOneHolder;
+                allPlayers[i].currentHolder = playerOneHolder;
+                allPlayers[i].turnCount = 1;
+                allPlayers[i].currentMaxResources = 1;
+                allPlayers[i].currentResources = 1;
+
             }
             else
             {
-                p.currentHolder = otherPlayersHolder;
+                allPlayers[i].currentHolder = otherPlayersHolder;
+                allPlayers[i].turnCount = 0;
+                allPlayers[i].currentMaxResources = 0;
+                allPlayers[i].currentResources = 0;
+
+            }
+
+            if (i < 2)
+            {
+
+                allPlayers[i].playerStatsUI = playerStats[i];
+                playerStats[i].player.LoadPlayerOnStatsUI();
             }
         }
     }
@@ -90,8 +108,8 @@ public class GameManager : MonoBehaviour
         {
             switchPlayer = false;
 
-            playerOneHolder.LoadPlayer(allPlayers[1]);
-            otherPlayersHolder.LoadPlayer(allPlayers[0]);
+            playerOneHolder.LoadPlayer(allPlayers[1], playerStats[0]);
+            otherPlayersHolder.LoadPlayer(allPlayers[0], playerStats[1]);
         }
 
         bool isComplete = turns[turnIndex].Execute();

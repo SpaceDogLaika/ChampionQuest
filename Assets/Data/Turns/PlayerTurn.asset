@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 13ded35f0864d5d458dc166d4a4f77ac, type: 2}
   phases:
-  - {fileID: 11400000, guid: 0177bbcca3724ec44acf1b9a667604ae, type: 2}
   - {fileID: 11400000, guid: 62612120ac7765a43970219a0b091de1, type: 2}
-  - {fileID: 11400000, guid: afe82e16651183145a5a475f652e9e1c, type: 2}
   currentPhase: {fileID: 11400000, guid: 400e90e6eaf573c4b9a907f6a2b59fc7, type: 2}
   turnStartActions:
   - {fileID: 11400000, guid: cbdd3e5e45b45104287e3e25d6bfeb9a, type: 2}
+  - {fileID: 11400000, guid: 585b309239b6a784eb499a0da7f8eb4c, type: 2}
+  - {fileID: 11400000, guid: 831c43b05c23a644abd332bcbb4d5336, type: 2}

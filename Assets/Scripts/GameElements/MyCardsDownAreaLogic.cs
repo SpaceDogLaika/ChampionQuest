@@ -53,5 +53,8 @@ public class MyCardsDownAreaLogic : AreaLogic
             card.value.gameObject.SetActive(true);
 
         }
+
+        Settings.RegisterEvent("Could not place card");
+
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Player Card Holders
   m_EditorClassIdentifier: 
   handGrid: {fileID: 11400000, guid: 5047ddc185d2f354bb735fc0f74c4184, type: 2}
-  downGrid: {fileID: 11400000, guid: bf5dfbb8c7417294989ed1f22b16bb70, type: 2}
+  downGridRanged: {fileID: 11400000, guid: fe18ac9fb07a6454daf3bfe5454d0b99, type: 2}
+  downGridMelee: {fileID: 11400000, guid: bf5dfbb8c7417294989ed1f22b16bb70, type: 2}
   resourcesGrid: {fileID: 11400000, guid: 010ee518274561140bdd2e7706dfd410, type: 2}

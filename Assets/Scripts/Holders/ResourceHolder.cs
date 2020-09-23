@@ -7,5 +7,4 @@ public class ResourceHolder
 {
     public bool isUsed;
     public GameObject cardObject;
-
 }

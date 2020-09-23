@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: ResourceCard
   m_EditorClassIdentifier: 
   typeName: Resource
+  canAttack: 0
+  cardTypeEnum: 6
