@@ -13,8 +13,10 @@ public class MouseHoldWithPlacedCard : Action
 
     public override void Execute(float d)
     {
+        CombatManager combatManager = CombatManager.cmSingleton;
+
         bool mouseIsDown = Input.GetMouseButton(0);
-        IClickable clickable = null;
+        CardInstance target = null;
 
 
         if (!mouseIsDown)
@@ -24,8 +26,12 @@ public class MouseHoldWithPlacedCard : Action
             foreach (RaycastResult result in results)
             {
                 // Check for enemy units to attack
-                clickable = result.gameObject.GetComponentInParent<IClickable>();
+                target = result.gameObject.GetComponentInParent<CardInstance>();
 
+                if (target != null)
+                {
+                    combatManager.ResolveBattle(currentCard, target);
+                }
             }
 
             currentCard.value.gameObject.SetActive(true);

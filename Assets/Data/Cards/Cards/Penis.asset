@@ -45,3 +45,5 @@ MonoBehaviour:
     element: {fileID: 11400000, guid: 976a5c9ca04b1f046a64ba5f71e7eac3, type: 2}
   cardClass: 6
   cardPassiveType: 
+  attack: 1
+  hp: 10

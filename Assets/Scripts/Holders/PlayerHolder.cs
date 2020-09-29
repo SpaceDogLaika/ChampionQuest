@@ -64,14 +64,22 @@ public class PlayerHolder : ScriptableObject
         if (card.cardType is MeleeUnit || card.cardType is RangedUnit || card.cardType is SpellCard)
         {
             if (card.cardCost <= currentResources)
+            {
                 result = true;
+                currentResources -= card.cardCost;
+                playerStatsUI.UpdateResources();
+            }
         }
         else
         {
             if (card.cardType is ResourceCard)
             {
                 if (card.cardCost <= currentResources)
+                {
                     result = true;
+                    currentResources -= card.cardCost;
+                    playerStatsUI.UpdateResources();
+                }
             }
         }
         

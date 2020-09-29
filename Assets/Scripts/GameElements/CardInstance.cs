@@ -7,10 +7,20 @@ public class CardInstance : MonoBehaviour, IClickable
     public GameElementLogic currentLogic;
     public bool isUsable;
     public bool isHighlighted = false;
+    public int startAttack;
+    public int currentAttack;
+    public int startHp;
+    public int currentHp;
 
     void Start()
     {
         cardViz = GetComponent<CardViz>();
+
+        startAttack = cardViz.card.attack;
+        startHp = cardViz.card.hp;
+
+        currentAttack = startAttack;
+        currentHp = startHp;
     }
 
     public bool CanAttack()
@@ -62,5 +72,10 @@ public class CardInstance : MonoBehaviour, IClickable
         var fullCard = transform.Find("CardTemplate");
         fullCard.gameObject.SetActive(false);
         placedCard.gameObject.SetActive(true);
+    }
+
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

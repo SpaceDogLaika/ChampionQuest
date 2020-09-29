@@ -11,5 +11,7 @@ public class Card : ScriptableObject
     public CardProperties[] properties;
     public CardClass cardClass;
     public CardPassiveType[] cardPassiveType;
+    public int attack;
+    public int hp;
 
 }

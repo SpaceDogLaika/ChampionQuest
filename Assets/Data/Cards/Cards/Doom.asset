@@ -42,5 +42,11 @@ MonoBehaviour:
     integerValue: 5
     sprite: {fileID: 0}
     element: {fileID: 11400000, guid: c90eeea8d38a5a743a2975af321a9a8f, type: 2}
+  - stringValue: 
+    integerValue: 0
+    sprite: {fileID: 21300000, guid: 4c597be0888fff049b735614463f62c0, type: 3}
+    element: {fileID: 11400000, guid: 976a5c9ca04b1f046a64ba5f71e7eac3, type: 2}
   cardClass: 6
   cardPassiveType: 
+  attack: 2
+  hp: 5
