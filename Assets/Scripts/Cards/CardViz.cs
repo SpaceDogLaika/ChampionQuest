@@ -8,6 +8,12 @@ public class CardViz : MonoBehaviour
     public CardVizProperties[] properties;
     public GameObject statsHolder;
     public GameObject resourceHolder;
+    private Vector3 startPosition;
+
+    public void Start()
+    {
+        startPosition = gameObject.transform.position;
+    }
 
     public void CloseAll()
     {
@@ -72,5 +78,10 @@ public class CardViz : MonoBehaviour
             }
         }
         return result;
+    }
+
+    public void ResetToStartPosition()
+    {
+        gameObject.transform.position = startPosition;
     }
 }

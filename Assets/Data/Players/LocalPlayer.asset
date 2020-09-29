@@ -16,6 +16,10 @@ MonoBehaviour:
   playerPortrait: {fileID: 21300000, guid: a27fa69cf1946264f99c30802669c3e7, type: 3}
   startingCards:
   - Penis
+  - Doom
+  - Penis
+  - Doom
+  - Penis
   playerColor: {r: 0, g: 0.049153328, b: 1, a: 1}
   hp: 30
   playerStatsUI: {fileID: 0}

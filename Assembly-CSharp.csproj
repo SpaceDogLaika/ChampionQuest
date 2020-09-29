@@ -63,11 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CursorsAndCrosshairs\CursorChanger.cs" />
+    <Compile Include="Assets\ResetHighight.cs" />
     <Compile Include="Assets\Scripts\_Actions\Action.cs" />
     <Compile Include="Assets\Scripts\_Actions\GameState.cs" />
     <Compile Include="Assets\Scripts\_Actions\InteractWithPlacedCard.cs" />
     <Compile Include="Assets\Scripts\_Actions\MouseClickDetection.cs" />
     <Compile Include="Assets\Scripts\_Actions\MouseHoldWithCard.cs" />
+    <Compile Include="Assets\Scripts\_Actions\MouseHoldWithPlacedCard.cs" />
     <Compile Include="Assets\Scripts\_Actions\MouseOverDetection.cs" />
     <Compile Include="Assets\Scripts\_Conditions\Condition.cs" />
     <Compile Include="Assets\Scripts\_Conditions\TurnStartCheck.cs" />
@@ -123,6 +126,7 @@
     <Compile Include="Assets\Scripts\GameElements\HandCard.cs" />
     <Compile Include="Assets\Scripts\GameElements\MyCardsDown.cs" />
     <Compile Include="Assets\Scripts\GameElements\MyCardsDownAreaLogic.cs" />
+    <Compile Include="Assets\Scripts\GameElements\OpponentCardAreaLogic.cs" />
     <Compile Include="Assets\Scripts\Holders\CardHolders.cs" />
     <Compile Include="Assets\Scripts\Holders\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\Holders\ResourceHolder.cs" />

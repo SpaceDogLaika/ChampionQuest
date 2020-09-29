@@ -33,6 +33,7 @@ public class CardInstance : MonoBehaviour, IClickable
         if (currentLogic == null)
             return;
 
+
         currentLogic.OnClick(this);
     }
 
@@ -41,7 +42,6 @@ public class CardInstance : MonoBehaviour, IClickable
         if (currentLogic == null)
             return;
 
-        isHighlighted = true;
 
         currentLogic.OnHighlight(this);
     }

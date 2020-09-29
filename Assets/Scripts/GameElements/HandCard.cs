@@ -21,6 +21,7 @@ public class HandCard : GameElementLogic
         float step = speed * Time.deltaTime; // calculate distance to move
 
         currentCard.Set(cardInstance);
+        currentCard.value.isHighlighted = true;
         currentCard.value.cardViz.gameObject.transform.localPosition = Vector3.MoveTowards(
             currentCard.value.cardViz.gameObject.transform.localPosition,
             new Vector3(currentCard.value.cardViz.gameObject.transform.localPosition.x, currentCard.value.cardViz.gameObject.transform.localPosition.x + 50,
@@ -31,12 +32,12 @@ public class HandCard : GameElementLogic
 
     public override void OnHighlightOff(CardInstance cardInstance)
     {
-        float step = speed * Time.deltaTime; // calculate distance to move
+        //float step = speed * Time.deltaTime; // calculate distance to move
 
-        currentCard.value.cardViz.gameObject.transform.localPosition = Vector3.MoveTowards(
-            currentCard.value.cardViz.gameObject.transform.localPosition,
-            new Vector3(currentCard.value.cardViz.gameObject.transform.localPosition.x, currentCard.value.cardViz.gameObject.transform.localPosition.x - 50,
-            currentCard.value.cardViz.gameObject.transform.localPosition.z),
-            step);
+        //currentCard.value.cardViz.gameObject.transform.localPosition = Vector3.MoveTowards(
+        //    currentCard.value.cardViz.gameObject.transform.localPosition,
+        //    new Vector3(currentCard.value.cardViz.gameObject.transform.localPosition.x, currentCard.value.cardViz.gameObject.transform.localPosition.x - 50,
+        //    currentCard.value.cardViz.gameObject.transform.localPosition.z),
+        //    step);
     }
 }
