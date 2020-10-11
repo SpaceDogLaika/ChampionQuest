@@ -80,6 +80,17 @@ public class CardViz : MonoBehaviour
         return result;
     }
 
+    public void UpdateHealthUI(int newHP)
+    {
+        properties[8].text.text = newHP.ToString();
+    }
+
+    public void UpdateAttack(int newAttack)
+    {
+        properties[9].text.text = newAttack.ToString();
+
+    }
+
     public void ResetToStartPosition()
     {
         gameObject.transform.position = startPosition;

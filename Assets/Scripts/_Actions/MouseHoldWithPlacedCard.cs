@@ -31,6 +31,7 @@ public class MouseHoldWithPlacedCard : Action
                 if (target != null)
                 {
                     combatManager.ResolveBattle(currentCard, target);
+                    currentCard.value.hasAttacked = true;
                 }
             }
 

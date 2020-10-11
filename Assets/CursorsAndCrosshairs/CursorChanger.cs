@@ -8,6 +8,7 @@ public class CursorChanger : MonoBehaviour {
 
 	public void Start()
     {
-        Cursor.SetCursor(cursor, new Vector2(0, 0), CursorMode.Auto);
+        Vector2 hotSpot = new Vector2(800 / 2f, 800 / 2f);
+        Cursor.SetCursor(cursor, hotSpot, CursorMode.Auto);
     }
 }

@@ -11,6 +11,10 @@ public class MyCardsDown : GameElementLogic
     public override void OnClick(CardInstance cardInstance)
     {
         currentCard.Set(cardInstance);
+
+        if (currentCard.value.hasAttacked)
+            return;
+
         Settings._gameManager.SetState(holdingCard);
         onCurrentCardSelected.Raise();
     }

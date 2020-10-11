@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CursorsAndCrosshairs\CursorChanger.cs" />
+    <Compile Include="Assets\CurvedLayout.cs" />
+    <Compile Include="Assets\HandCardCurve.cs" />
     <Compile Include="Assets\ResetHighight.cs" />
     <Compile Include="Assets\Scripts\_Actions\Action.cs" />
     <Compile Include="Assets\Scripts\_Actions\GameState.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Assets\Scripts\Holders\PlayerHolder.cs" />
     <Compile Include="Assets\Scripts\Holders\ResourceHolder.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IClickable.cs" />
+    <Compile Include="Assets\Scripts\Managers\CombatManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\PlayerStatsUI.cs" />
     <Compile Include="Assets\Scripts\Managers\ResourcesManager.cs" />
@@ -199,6 +202,9 @@
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Stuff/Dev/Unity/Projects/ChampionQuestReal/ChampionQuest/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Nobi.UiRoundedCorners">
+      <HintPath>E:/Stuff/Dev/Unity/Projects/ChampionQuestReal/ChampionQuest/Library/ScriptAssemblies/Nobi.UiRoundedCorners.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>E:/Stuff/Dev/Unity/Projects/ChampionQuestReal/ChampionQuest/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

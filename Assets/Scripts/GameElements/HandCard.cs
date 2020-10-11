@@ -21,13 +21,17 @@ public class HandCard : GameElementLogic
         float step = speed * Time.deltaTime; // calculate distance to move
 
         currentCard.Set(cardInstance);
-        currentCard.value.isHighlighted = true;
-        currentCard.value.cardViz.gameObject.transform.localPosition = Vector3.MoveTowards(
-            currentCard.value.cardViz.gameObject.transform.localPosition,
-            new Vector3(currentCard.value.cardViz.gameObject.transform.localPosition.x, currentCard.value.cardViz.gameObject.transform.localPosition.x + 50,
-            currentCard.value.cardViz.gameObject.transform.localPosition.z),
-            step);
 
+        /// Need to figure out a way to set the currently highlighted card to the top of pile
+        /// currentCard.value.gameObject.transform.SetSiblingIndex(0);
+
+        /// Need to figure out a way to 
+        //var currentPosition = currentCard.value.cardViz.gameObject.transform.localPosition;
+        //var desiredPostion = currentCard.value.cardViz.gameObject.transform.localPosition.y + 50;
+        //currentCard.value.cardViz.gameObject.transform.localPosition = Vector3.MoveTowards(
+        //    currentPosition, 
+        //    new Vector2(currentPosition.x, desiredPostion), 
+        //    step);
     }
 
     public override void OnHighlightOff(CardInstance cardInstance)

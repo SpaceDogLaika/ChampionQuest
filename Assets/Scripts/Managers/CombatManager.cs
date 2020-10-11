@@ -9,18 +9,23 @@ public class CombatManager : MonoBehaviour
         cmSingleton = this;
     }
 
-    public void ResolveBattle(CardVariable currentCard, CardInstance target)
+    public void ResolveBattle(CardVariable currentCard, CardInstance targetCard)
     {
         var currentCardAttack = currentCard.value.currentAttack;
         var currentCardHp = currentCard.value.currentHp;
 
-        var targetCardAttack = target.currentAttack;
-        var targetCardHp = target.currentHp;
+        var targetCardAttack = targetCard.currentAttack;
+        var targetCardHp = targetCard.currentHp;
 
         // damage self
         currentCardHp -= targetCardAttack;
         // damage target
         targetCardHp -= currentCardAttack;
+
+        //update UI
+        currentCard.value.cardViz.UpdateHealthUI(currentCardHp);
+        targetCard.cardViz.UpdateHealthUI(targetCardHp);
+
         // resolve
         if (currentCardHp < 1)
         {
@@ -32,10 +37,10 @@ public class CombatManager : MonoBehaviour
 
         if (targetCardHp < 1)
         {
-            target.DestroySelf();
+            targetCard.DestroySelf();
         } else
         {
-            target.currentHp = targetCardHp;
+            targetCard.currentHp = targetCardHp;
         }
     }
 }

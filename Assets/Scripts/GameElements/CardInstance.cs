@@ -11,6 +11,7 @@ public class CardInstance : MonoBehaviour, IClickable
     public int currentAttack;
     public int startHp;
     public int currentHp;
+    public bool hasAttacked = false;
 
     void Start()
     {
